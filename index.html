@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fi">
+<title>Chat</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Jquery-->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="main.css" />
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!--Own-->
+    <link rel="stylesheet" href="css/chat.css" />
+    <script type="module" src="js/chat.js"></script>
+</head>
+
+<body id="body">
+    <form enctype="multipart/form-data" name="chatForm" id="chatForm">
+        <div class="container d-flex flex-column justify-content-center"
+            style="align-items: center; margin-top:clamp(0px, 6svw, 8svh); height:calc((100svh - clamp(0px, 6svw, 8svh) * 2))">
+            <!--TOP PANEL-->
+            <div id="topPanelContainer" class="frostedGlass rounded-5 mb-4 d-flex"
+                style="height: 4em; min-height: 4em; align-items: center; max-width: 95svw; overflow:hidden;">
+
+                <label for="inputPicture" id="inputPictureLabel" style="" class="testAnim">
+                    <input form="chatForm" type="file" name="inputPicture" value=" " id="inputPicture">
+                </label>
+
+                <div id="errorBox"
+                    style="position:absolute; width:100%; height:100%; top:0; background-color: red; display:flex; flex-direction: column; justify-content: center; display:none;">
+                    <p id="errorText"
+                        style="margin:0 !important; padding: 0 !important; text-align: center; color:white;">Error!</p>
+                </div>
+
+
+                <input type="text" placeholder="Type your name here" id="inputName" name="inputName"
+                    class="shadow inputText m-3 rounded-pill testAnim "
+                    style="flex-grow: 1; padding-left: 1em; padding-right: 1em; height: 70%; text-align: center;"
+                    autocapitalize="on" required>
+            </div>
+            <!--TOP PANEL END-->
+
+            <!-- CHAT -->
+            <div class="frostedGlass p-0 m-0 rounded-4 d-flex flex-column justify-content-between" id="chatContainer"
+                style=" height: 90%; ">
+
+                <!-- Chat messages -->
+                <div id="messages" class="messages testAnim m-0"
+                    style="flex-grow: 1; padding:0; padding-right: 1.7em; padding-left: 0.7em; max-width: 90svw; width:55em; overflow:scroll !important;">
+
+                    <!--Message -->
+                    <!-- SAMPLE -->
+                    <!--<div class="message m-0 p-0 mt-4" style="width:100%;">
+                        <div class="d-flex p-0 m-0" style="max-width: 100%;">
+                            <div class="d-flex justify-content-end" style="padding-left:0; align-items: flex-end;">
+                                <img class="profileImage shadow" src="profile4.jpg"
+                                    style="padding-left: 0; width: 4em; height: 4em; object-fit: cover; border-radius: 50%; position: relative; bottom: -1.7em; right: -.5em; z-index: 0;">
+                            </div>
+                            <div class="p-0 m-0 text-wrap" style="z-index: 1; flex-grow: 1; position: relative;">
+                                <div class="d-flex justify-content-between p-3 pt-0 pb-0 mb-1">
+                                    <span class="nameBold">Name</span>
+                                    <span class="" style="color: #3f3f3f">7:08 PM</span>
+                                </div>
+                                <span class="msg rounded-4 bg-white shadow pt-2 pb-2 p-3"
+                                    style="border-bottom-left-radius: 0 !important; display: inline-block;">
+                                    Lorem ipsum dolor sit.
+                                </span>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!--Message end-->
+
+                    <!--for extra scroll-->
+                    <div id="bottomPadding" class="d-flex flex-column justify-content-end"
+                        style="height: 7.6em; width: 100%;">
+                    </div>
+                </div>
+
+                <!-- Message input field -->
+                <div class="d-flex mb-3 frostedGlass rounded-bottom-4" id="inputContainer"
+                    style="position: absolute; bottom: -1em; width: 100%; z-index: 2;  height: 5em;">
+
+                    <input type="text" class="rounded-pill shadow-sm testAnim" id="inputMessage" name="inputMessage"
+                        placeholder="Type a message here"
+                        style="flex-grow: 1; margin-left:1em; margin-right: 1em; height:3em; padding-left:1em;"
+                        autocomplete="off" required>
+
+                    <input id="sendMessage" class="testAnim" name="sendMessage" type="image" src="send.png"
+                        alt="Submit" />
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+    <template id="messageTemplate">
+        <!--Message -->
+        <div id="message{{id}}" class="message m-0 p-0 mt-4" style="width:100%;">
+            <!--Message contents-->
+            <div class="d-flex p-0 m-0" style="max-width: 100%;">
+                <div class="d-flex justify-content-end align-items-end" style="padding-left:0;">
+                    <!--image -->
+                    <img class="profileImage shadow" alt="avatar" src="media/{{avatar}}">
+                </div>
+
+                <div class="p-0 m-0 text-wrap" style="z-index: 1; flex-grow: 1; position: relative;">
+                    <!-- Time stamp & name -->
+                    <div class="timeStampAndName mb-1">
+                        <span class="nameBold">{{name}}</span>
+                        <span class="" style="color: #3f3f3f">{{timestamp}}</span>
+                    </div>
+                    <span class="msg rounded-4 bg-white shadow pt-2 pb-2 p-3">
+                        {{message}}
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <!--Message end-->
+    </template>
+
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+php/connectdb.php
+!media/
+/media/*
+!/media/empty.jpg

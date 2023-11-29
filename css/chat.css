@@ -1,0 +1,334 @@
+   @import 'animationKeyframes.css';
+
+   @font-face {
+       font-family: "Open-Sans";
+       src: url('../fonts/OpenSans-Regular.ttf');
+   }
+
+   @font-face {
+       font-family: "Open-Sans-Bold";
+       src: url('../fonts/OpenSans-Bold.ttf');
+   }
+
+   :root {
+       --select-pic-size: 3.1em;
+   }
+
+   body {
+       background: url(../bg7t.jpg) no-repeat center center fixed;
+       background-size: cover;
+       background-color: #3f3f3f;
+   }
+
+   p,
+   form,
+   input,
+   span {
+       font-family: "Open-Sans";
+   }
+
+   .nameBold {
+       font-family: "Open-Sans";
+   }
+
+   input {
+       font-family: "Open-Sans";
+   }
+
+   span {
+       font-size: 0.9em;
+   }
+
+   textarea,
+   #inputMessage,
+   .inputText {
+       padding: .25em;
+
+       border: none;
+       overflow: auto;
+       outline: none;
+       -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+       box-shadow: none;
+       margin-top: 0;
+       margin-bottom: 0;
+       margin: auto;
+   }
+
+   #inputName {
+       border: none;
+       overflow: auto;
+       outline: none;
+       -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+       box-shadow: none;
+       margin-top: 0;
+       margin-bottom: 0;
+       margin: auto;
+   }
+
+   .custom-button {
+       text-align: center;
+       border: none;
+   }
+
+   .frostedGlass {
+       background-color: rgba(255, 255, 255, .5);
+       backdrop-filter: blur(8px);
+   }
+
+   /* width */
+   .messages::-webkit-scrollbar {
+       width: 10px;
+   }
+
+   /* Track */
+   .messages::-webkit-scrollbar-track {
+       background: #f1f1f1;
+   }
+
+   /* Handle */
+   .messages::-webkit-scrollbar-thumb {
+       background: #888;
+   }
+
+   /* Handle on hover */
+   .messages::-webkit-scrollbar-thumb:hover {
+       background: #555;
+   }
+
+   .messages {
+       scrollbar-width: none;
+       -ms-overflow-style: none;
+   }
+
+   .messages::-webkit-scrollbar {
+       display: none;
+       /* Safari and Chrome */
+   }
+
+   .timeStampAndName {
+       padding: 0;
+       margin: 0;
+       padding-left: 0.5em;
+       padding-right: 0.5em;
+       display: flex;
+       justify-content: space-between;
+   }
+
+   .msg::before {
+       content: "";
+       height: 1.5em;
+       position: absolute;
+       border-bottom-right-radius: 100% 90%;
+       border-color: white;
+       border-width: 1em;
+       border-right-style: solid;
+       left: 0em;
+       bottom: -.5em;
+       transform: rotate(25deg);
+       transform-style: preserve-3d;
+       outline: 1px solid transparent;
+       box-shadow: none !important;
+   }
+
+   .msg {
+       border-bottom-left-radius: 0 !important;
+       display: inline-block;
+   }
+
+   .profileImage {
+       width: 4em;
+       height: 4em;
+       object-fit: cover;
+       padding-left: 0;
+       width: 4em;
+       height: 4em;
+       object-fit: cover;
+       border-radius: 50%;
+       position: relative;
+       bottom: -1.7em;
+       right: -.5em;
+       z-index: 0;
+   }
+
+   .profileImage,
+   #inputPictureLabel {
+       background-color: #213e5c !important;
+   }
+
+   input[type="file"] {
+       display: none;
+   }
+
+   #imageError {
+       display: none;
+       position: absolute;
+       margin: 1em;
+       padding: 1em;
+       left: 100%;
+       background-color: white;
+       color: black;
+   }
+
+   #imageError::after {
+       content: " ";
+       position: absolute;
+       width: 1em;
+       height: 1em;
+       top: 35%;
+       left: -0.2em;
+       margin-left: auto;
+       margin-right: auto;
+       transform: rotateZ(45deg);
+       background-color: white;
+       transition: 0.5s;
+   }
+
+   #imageErrorTxt {
+       line-height: 1rem;
+       margin: 0;
+       text-align: center;
+       transition: 0.5s;
+   }
+
+
+   #inputPictureLabel:hover::after {
+       opacity: 1;
+       content: "";
+       position: absolute;
+       top: 0.45em;
+       left: .75em;
+       border-radius: 50%;
+       width: var(--select-pic-size);
+       height: var(--select-pic-size);
+       background-image: url("../edit.png");
+       background-size: 50%;
+       background-repeat: no-repeat;
+       object-fit: cover;
+       background-position: center;
+       transition: .5s ease;
+   }
+
+   #inputPictureLabel:not(:hover)::after {
+       opacity: 0;
+       content: "";
+       position: absolute;
+       top: 0.45em;
+       left: .75em;
+       border-radius: 50%;
+       width: var(--select-pic-size);
+       height: var(--select-pic-size);
+       background-image: url("../edit.png");
+       background-size: 50%;
+       background-repeat: no-repeat;
+       object-fit: cover;
+       background-position: center;
+       transition: .5s ease;
+   }
+
+   #inputPictureLabel {
+       background-image: url("../empty.webp");
+       background-size: cover;
+       width: var(--select-pic-size);
+       height: var(--select-pic-size);
+       border-radius: 50%;
+       object-fit: cover;
+       margin-left: .75em;
+       background-color: rgba(0, 0, 0, 0);
+       transition: .5s ease;
+   }
+
+   #inputPictureLabel:hover {
+       background-image: url("../empty.webp");
+       transition: .5s;
+       cursor: pointer;
+   }
+
+   #inputPictureLabel:hover::before {
+       opacity: 1;
+       content: "";
+       position: absolute;
+       background-color: rgba(0, 0, 0, 0.5);
+       top: 0.45em;
+       left: .75em;
+       border-radius: 50%;
+       width: var(--select-pic-size);
+       height: var(--select-pic-size);
+       cursor: pointer;
+       transition: .5s ease;
+   }
+
+   #inputPictureLabel:not(:hover)::before {
+       opacity: 0;
+       content: "";
+       position: absolute;
+       background-color: rgba(0, 0, 0, 0.5);
+       top: 0.45em;
+       left: .75em;
+       border-radius: 50%;
+       width: var(--select-pic-size);
+       height: var(--select-pic-size);
+       cursor: pointer;
+       transition: .25s ease;
+   }
+
+   #inputName {
+       font-size: 1rem;
+       margin-left: 0.5em !important;
+       margin-right: 0.75em !important;
+   }
+
+   #sendMessage {
+       width: 3em;
+       height: 3em;
+       border-radius: 50%;
+       background-color: #0d6efd;
+       margin: auto;
+       margin-right: 1em;
+       padding: .5em;
+       box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+       transition: .5s ease-in-out;
+   }
+
+   .sendButtonAnim {
+       animation: bouncers linear .8s 1;
+   }
+
+   #sendAnim {
+       animation: rotate ease 1.75s;
+       animation-iteration-count: 1;
+       animation-fill-mode: forwards;
+   }
+
+   .frostedGlass {
+       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+       animation: fadeInGlass cubic-bezier(0.65, 0, 0.35, 1.15) 1s;
+       animation-iteration-count: 1;
+       animation-fill-mode: forwards;
+
+   }
+
+   .testAnim {
+       animation: fadeIn cubic-bezier(0.8, 0, 0.78, 0) 1.2s;
+       animation-iteration-count: 1;
+       animation-fill-mode: forwards;
+
+   }
+
+   .errorTextEnter {
+       background-size: 400% 400%;
+       animation: errorTextEnter ease-in-out 1s;
+       animation-iteration-count: 1;
+       animation-fill-mode: forwards;
+   }
+
+   #errorText {
+       font-size: 1.2em;
+   }
+
+   #inputContainer {
+       animation: swipeIn cubic-bezier(0.65, 0, 0.35, 1) .7s, fadeInGlass cubic-bezier(0.65, 0, 0.35, 1.15) 1s;
+       animation-iteration-count: 1;
+       animation-fill-mode: forwards;
+   }
