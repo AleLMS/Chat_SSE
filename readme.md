@@ -1,0 +1,1 @@
+A simple chat application for an assigment.
